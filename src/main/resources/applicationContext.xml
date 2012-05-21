@@ -10,7 +10,7 @@
         <property name="leaveDao" ref="leaveDao" />
     </bean>
 
-    <bean id="leaveDao" class="api.dao.LeaveDao">
+    <bean id="poemDao" class="thoughtworks.dao.PoemDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

@@ -15,7 +15,8 @@
         </property>
         <property name="annotatedClasses">
             <list>
-               <value>api.domain.Leave</value>
+               <value>thoughtworks.domain.Sentence</value>
+               <value>thoughtworks.domain.Poem</value>
             </list>
         </property>
     </bean>
