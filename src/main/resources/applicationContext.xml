@@ -6,11 +6,15 @@
     <import resource="database/dataSource.xml" />
     <import resource="database/hibernate.xml" />
 
-    <bean id="leaveController" class="api.web.LeaveController">
-        <property name="leaveDao" ref="leaveDao" />
+    <bean id="sentenceController" class="thoughtworks.web.SentenceController">
+        <property name="sentenceDao" ref="sentenceDao" />
     </bean>
 
     <bean id="poemDao" class="thoughtworks.dao.PoemDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="sentenceDao" class="thoughtworks.dao.SentenceDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
