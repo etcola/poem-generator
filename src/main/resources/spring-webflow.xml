@@ -19,12 +19,7 @@
     <!-- Plugs in a custom creator for Web Flow views -->
     <flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" development="true"/>
 
-    <!-- Maps view names to Tiles Definitions with support for partial re-rendering -->
-    <beans:bean id="viewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
-        <beans:property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView"/>
-    </beans:bean>
-
-    <!-- Configures Web Flow to use the "viewResolver" instance already defined for Spring MVC views in servlet-contex.xml -->
+    <!-- Using spring mvc configuration viewResolver-->
     <beans:bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
         <beans:property name="viewResolvers" ref="viewResolver"/>
     </beans:bean>
