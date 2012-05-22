@@ -6,16 +6,6 @@
 		http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!-- Maps request paths to flows in the flowRegistry; e.g. a path of /booking looks for a flow with id "booking" -->
-    <beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <beans:property name="order" value="-1"/>
-        <beans:property name="flowRegistry" ref="flowRegistry"/>
-    </beans:bean>
-
-    <!-- Dispatches requests mapped to flows to FlowHandler implementations -->
-    <beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-        <beans:property name="flowExecutor" ref="flowExecutor"/>
-    </beans:bean>
 
     <!-- Executes flows: the entry point into the Spring Web Flow system -->
     <flow-executor id="flowExecutor">
@@ -39,9 +29,16 @@
         <beans:property name="viewResolvers" ref="viewResolver"/>
     </beans:bean>
 
-    <!-- Enables FlowHandler URL mapping -->
+    <!-- Enables FlowHandler Called by DispatcherServlet -->
     <beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
         <beans:property name="flowExecutor" ref="flowExecutor"/>
     </beans:bean>
+
+    <!-- Enable flow enter point work with given url-->
+    <beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <beans:property name="order" value="-1"/>
+        <beans:property name="flowRegistry" ref="flowRegistry"/>
+    </beans:bean>
+    <beans:bean name="/poem-generate/generating" class="thoughtworks.web.GeneratingFlowHandler"/>
 
 </beans:beans>

@@ -5,8 +5,8 @@
 
     <import resource="database/dataSource.xml"/>
     <import resource="database/hibernate.xml"/>
-    <import resource="webflow.xml"/>
 
+    <!-- Make sure annotation mapping handler works-->
     <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
     <bean id="handlerAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
@@ -21,12 +21,4 @@
     <bean id="sentenceDao" class="thoughtworks.dao.SentenceDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <property name="order" value="-1"/>
-        <property name="flowRegistry" ref="flowRegistry"/>
-    </bean>
-
-    <bean name="/poem-generate/generating" class="thoughtworks.web.GeneratingFlowHandler"/>
-
 </beans>
