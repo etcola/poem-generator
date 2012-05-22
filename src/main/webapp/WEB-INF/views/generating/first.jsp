@@ -9,8 +9,4 @@
         <button class="button positive" type="submit" id="next" name="_eventId_next">Next</button>
         <button class="button" type="submit" name="_eventId_cancel">Cancel</button>
     </p>
-    <script type="text/javascript">
-        Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'next', event:'onclick'}));
-        Spring.addDecoration(new Spring.AjaxEventDecoration({elementId:'next',event:'onclick',formId:'vehicle',params:{fragments:'body'}}));
-    </script>
 </form:form>
