@@ -1,10 +1,11 @@
 package thoughtworks.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "poem")
-public class Poem {
+public class Poem implements Serializable{
     Integer id;
     String qi;
     String cheng;

@@ -9,4 +9,11 @@ public class PoemDao extends HibernateDaoSupport {
         return (Poem[])getHibernateTemplate().find("from thoughtworks.domain.Poem").toArray(new Poem[0]);
     }
 
+    public Poem create(){
+        return new Poem();
+    }
+
+    public void save(Poem poem){
+        getHibernateTemplate().save(poem);
+    }
 }

@@ -4,7 +4,8 @@
 
 <p>The fourth Sentence of the poem</p>
 
-<form:form id="fourth">
+<form:form id="fourth" modelAttribute="poem" action="${flowExecutionUrl}">
+    <form:input path="he" />
     <p>
         <button class="button positive" type="submit" id="next" name="_eventId_next">Next</button>
         <button class="button" type="submit" name="_eventId_cancel">Cancel</button>
