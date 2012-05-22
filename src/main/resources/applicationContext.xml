@@ -3,11 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="database/dataSource.xml" />
-    <import resource="database/hibernate.xml" />
+    <import resource="database/dataSource.xml"/>
+    <import resource="database/hibernate.xml"/>
+    <import resource="webflow.xml"/>
+
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean id="handlerAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
     <bean id="sentenceController" class="thoughtworks.web.SentenceController">
-        <property name="sentenceDao" ref="sentenceDao" />
+        <property name="sentenceDao" ref="sentenceDao"/>
     </bean>
 
     <bean id="poemDao" class="thoughtworks.dao.PoemDao">
@@ -18,5 +22,11 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <property name="order" value="-1"/>
+        <property name="flowRegistry" ref="flowRegistry"/>
+    </bean>
+
+    <bean name="/poem-generate/generating" class="thoughtworks.web.GeneratingFlowHandler"/>
 
 </beans>

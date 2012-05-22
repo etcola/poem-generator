@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <view-state id="qi" view="generating/first">
+        <transition on="next" to="cheng"/>
+        <transition on="cancel" to="cancel"/>
+    </view-state>
+
+    <view-state id="cheng" view="generating/second">
+        <transition on="next" to="zhuan"/>
+        <transition on="cancel" to="cancel"/>
+    </view-state>
+
+    <view-state id="zhuan" view="generating/third">
+        <transition on="next" to="he"/>
+        <transition on="cancel" to="cancel"/>
+    </view-state>
+
+    <view-state id="he" view="generating/fourth">
+        <transition on="next" to="successfully"/>
+    </view-state>
+
+    <end-state id="cancel" view="externalRedirect:contextRelative:/sentence/index.do" />
+    <end-state id="successfully" view ="generating/successfully"/>
+
+</flow>
