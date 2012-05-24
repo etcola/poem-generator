@@ -36,10 +36,11 @@
             <binding property="he" />
         </binder>
         <transition on="next" to="successfully"/>
+        <on-exit>
+            <evaluate expression="poemDao.save(poem)" />
+        </on-exit>
     </view-state>
 
     <end-state id="cancel" view="externalRedirect:contextRelative:/sentence/index.do" />
-    <end-state id="successfully" view ="generating/successfully">
-    </end-state>
-
+    <end-state id="successfully" view ="generating/successfully" />
 </flow>
