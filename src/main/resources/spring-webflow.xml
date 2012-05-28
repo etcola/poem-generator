@@ -35,5 +35,6 @@
         <beans:property name="flowRegistry" ref="flowRegistry"/>
     </beans:bean>
     <beans:bean name="/poem-generator/generating" class="thoughtworks.web.GeneratingFlowHandler"/>
+    <beans:bean name="/poem-generator/famous-sentence" class="thoughtworks.web.SentenceFlowHandler"/>
 
 </beans:beans>

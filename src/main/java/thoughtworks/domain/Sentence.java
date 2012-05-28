@@ -1,10 +1,11 @@
 package thoughtworks.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "sentence")
-public class Sentence {
+public class Sentence implements Serializable {
     String content;
     Integer id;
 

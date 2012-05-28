@@ -18,7 +18,13 @@
 
 <form method="get" action="<c:url value="/generating" />">
     <div>
-        <button type="submit" id="book" name="_eventId_generate">Generate Poem</button>
+        <button type="submit" id="poem" name="_eventId_generate">Generate Poem</button>
+    </div>
+</form>
+
+<form method="get" action="<c:url value="/famous-sentence" />">
+    <div>
+        <button type="submit" id="sentence" name="_eventId_sentence">Add famous sentence</button>
     </div>
 </form>
 
